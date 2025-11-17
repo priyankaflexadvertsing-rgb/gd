@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload Printing Files</title>
+</head>
+<body>
+  <form id="uploadForm">
+    <input type="file" name="images" id="fileInput" />
+    <button type="submit">Upload</button>
+  </form>
+
+  <script>
+    const form = document.getElementById("uploadForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const fileInput = document.getElementById("fileInput");
+      const formData = new FormData();
+      formData.append("images", fileInput.files[0]);
+
+      // ✅ Replace these with your real tokens
+      const accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InYzdHgwamZsd3U3c2F1bWlsYXRoeWEiLCJpYXQiOjE3NjMyNjc2NzAsImV4cCI6MTc2MzI2Nzk3MH0.rATZXjto0p9vR5R1ZLiXOr9xwdTwyJPwxccvEkqDzWU";
+      const refreshToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InYzdHgwamZsd3U3c2F1bWlsYXRoeWEiLCJpYXQiOjE3NjMyNjc2NzAsImV4cCI6MTc2MzUyNjg3MH0.d62A5ThfQQ-lFPGUvXgdo4H2z258EDfcd6AsFgqd3NE";
+
+      try {
+        const res = await fetch("/api/v2/uploadPrint", {
+          method: "POST",
+          headers: {
+            "access-token": accessToken,
+            "refresh-token": refreshToken, // ✅ Include both tokens
+          },
+          body: formData,
+        });
+
+        const data = await res.json();
+        console.log("Server response:", data);
+      } catch (err) {
+        console.error("Upload failed:", err);
+      }
+    });
+  </script>
+</body>
+</html>

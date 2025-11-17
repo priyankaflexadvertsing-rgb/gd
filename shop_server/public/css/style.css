@@ -1,0 +1,64 @@
+.body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.upload-container {
+  width: 50%;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.table-container {
+  width: 50%;
+  padding: 2rem;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.table,
+tbody {
+  width: "100%";
+  text-align: center;
+}
+
+.drop-area {
+  width: 100%;
+  min-height: 350px;
+  border: 2px dashed #00000026;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drop-area.dragging {
+  background-color: #add8e6;
+}
+
+.image-preview {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.image-preview img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+}
