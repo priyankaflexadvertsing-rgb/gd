@@ -13,7 +13,7 @@ const app = express();
 const port = 8000;
 
 app.use(cors({
-  origin: "*", // removed trailing slash
+  origin: "https://printify-main.vercel.app", // removed trailing slash
   credentials: true,
 }));
 app.use(express.json());
