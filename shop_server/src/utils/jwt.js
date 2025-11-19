@@ -16,7 +16,7 @@ export const accessTokenOptions = {
     expires: new Date(Date.now() + accessTokenExpire),
     maxAge: accessTokenExpire,
     httpOnly: true,
-    sameSite: "Lax",
+    sameSite: "none",
     secure: true,
 };
 
@@ -25,7 +25,7 @@ export const refreshTokenOptions = {
     expires: new Date(Date.now() + refreshTokenExpire),
     maxAge: refreshTokenExpire,
     httpOnly: true,
-    sameSite: "Lax",
+    sameSite: "none",
     secure: true,
 };
 export const SignAccessToken = (id) => jwt.sign({ id: id }, ACCESS_TOKEN_SECRET || "", { expiresIn: "5m" });
