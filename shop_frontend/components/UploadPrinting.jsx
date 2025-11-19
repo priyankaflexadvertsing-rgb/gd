@@ -47,8 +47,8 @@ const UploadPrinting = () => {
 
       const res = await fetch( `${SERVER_URI}/uploadPrint`, {
         method: "POST",
+        credentials: "include", // sends HttpOnly cookies automaticall
         body: formData,
-        credentials: "include", // sends HttpOnly cookies automatically
       });
 
       if (!res.ok) throw new Error(`Server error: ${res.status}`);
@@ -171,3 +171,4 @@ const UploadPrinting = () => {
 };
 
 export default UploadPrinting;
+
